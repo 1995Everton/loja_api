@@ -36,4 +36,14 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return $this->hasMany(Address::class);
     }
 
+    public function getManagerAttribute($manager):bool
+    {
+        return $manager;
+    }
+
+    public function getActiveAttribute($active):bool
+    {
+        return $active;
+    }
+
 }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 
 
 use App\User;
-use Faker\Provider\DateTime;
 use Firebase\JWT\JWT;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -32,5 +31,24 @@ class AuthController extends Controller
         $user->token = $token;
         $user->save();
         return response()->json(['access_token' => $token],200);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validate($request,User::$rules);
+        $data = User::create([
+            'name' => $request->name,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
+        if($data){
+            return response()->json([
+                'success' => 'successfully created user',
+                'link' => ''
+            ],201);
+        }else{
+            return response()->json(['error' => 'error inserting into database'],502);
+        }
     }
 }
