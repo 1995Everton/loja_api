@@ -20,7 +20,8 @@ class Product extends Model
         'unitary_value' => 'required',
         'net_weight' => 'required',
         'stock' => 'required',
-        'category_id' => 'required|exists:category,id'
+        'category_id' => 'required|exists:category,id',
+        'brand_id' => 'required|exists:brand,id'
     ];
 
     protected $fillable = [
@@ -40,11 +41,17 @@ class Product extends Model
         'last_sale',
         'cost_price',
         'active',
-        'category_id'
+        'category_id',
+        'brand_id'
     ];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
     }
 }

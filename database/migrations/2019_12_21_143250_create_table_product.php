@@ -18,7 +18,6 @@ class CreateTableProduct extends Migration
             $table->string('name',40)->nullable(false);
             $table->string('description',80)->nullable(false);
             $table->text('details')->nullable();
-            $table->string('brand',20)->nullable();
             $table->string('image',100)->nullable(false);
             $table->string('miniature',100)->nullable();
             $table->boolean('fragile')->nullable();
@@ -34,10 +33,14 @@ class CreateTableProduct extends Migration
             $table->timestamps();
             //foreign key
             $table->integer('category_id');
+            $table->integer('brand_id');
 
             $table->foreign('category_id')
                 ->references('id')
                 ->on('category');
+            $table->foreign('brand_id')
+                ->references('id')
+                ->on('brand');
         });
     }
 

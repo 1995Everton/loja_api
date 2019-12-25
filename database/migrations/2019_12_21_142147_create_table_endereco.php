@@ -22,11 +22,11 @@ class CreateTableEndereco extends Migration
             $table->string('cidade');
             $table->string('pais');
             $table->string('cep');
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->timestamps();
 
-            $table->foreach('user_id')
-                ->reference('id')
+            $table->foreign('user_id')
+                ->references('id')
                 ->on('user');
         });
     }

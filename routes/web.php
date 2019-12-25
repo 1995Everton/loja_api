@@ -3,6 +3,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router  */
 
+use App\Product;
+
 $router->group(['prefix' => 'api/adm', 'middleware' => 'admin' ],function () use ($router){
 
     $router->group(['prefix' => 'user'], function () use ($router){
@@ -17,6 +19,12 @@ $router->group(['prefix' => 'api/adm', 'middleware' => 'admin' ],function () use
         $router->post('','CategoryController@store');
         $router->put('{id}','CategoryController@update');
         $router->delete('{id}','CategoryController@destroy');
+    });
+
+    $router->group(['prefix' => 'brand'],function () use ($router){
+        $router->post('','BrandController@store');
+        $router->put('{id}','BrandController@update');
+        $router->delete('{id}','BrandController@destroy');
     });
 
     $router->group(['prefix' => 'product'],function () use ($router){
@@ -61,7 +69,13 @@ $router->group(['prefix' => 'api'],function () use ($router){
     $router->group(['prefix' => 'category'],function () use ($router){
         $router->get('','CategoryController@index');
         $router->get('{id}','CategoryController@show');
-        $router->get('{id}/product','ProductController@edit');
+        $router->get('{id}/product','ProductController@editCategory');
+    });
+
+    $router->group(['prefix' => 'brand'],function () use ($router){
+        $router->get('','BrandController@index');
+        $router->get('{id}','BrandController@show');
+        $router->get('{id}/product','ProductController@editBrand');
     });
 
     $router->group(['prefix' => 'product'],function () use ($router){
