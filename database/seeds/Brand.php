@@ -15,12 +15,12 @@ class Brand extends Seeder
             [
                 'name' => 'Adidas',
                 'logo' => 'https://logodownload.org/wp-content/uploads/2014/07/adidas-logo.png',
-                'banner' => 'https://dafitistatic-a.akamaihd.net/cms/kanui/02-05-17-Vans_landing.jpg'
+                'banner' => ''
             ],
             [
                 'name' => 'Vans',
                 'logo' => 'http://pluspng.com/img-png/vans-png-addthis-sharing-sidebar-600.png',
-                'banner' => ''
+                'banner' => 'https://dafitistatic-a.akamaihd.net/cms/kanui/02-05-17-Vans_landing.jpg'
             ],
             [
                 'name' => 'Hurley',
@@ -31,11 +31,6 @@ class Brand extends Seeder
                 'name' => 'Converse',
                 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Converse_logo.svg/325px-Converse_logo.svg.png',
                 'banner' => 'https://dafitistatic-a.akamaihd.net/cms/banner-marca-converse-kanui.jpg'
-            ],
-            [
-                'name' => 'Adidas',
-                'logo' => 'https://logodownload.org/wp-content/uploads/2014/07/adidas-logo.png',
-                'banner' => ''
             ],
             [
                 'name' => 'Nike',

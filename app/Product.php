@@ -15,7 +15,6 @@ class Product extends Model
 
     public static $rules = [
         'name' => 'required',
-        'description' => 'required',
         'image' => 'required',
         'unitary_value' => 'required',
         'net_weight' => 'required',
@@ -26,12 +25,8 @@ class Product extends Model
 
     protected $fillable = [
         'name',
-        'description',
         'details',
-        'brand',
         'image',
-        'miniature',
-        'fragile',
         'unitary_value',
         'net_weight',
         'stock',
@@ -53,5 +48,14 @@ class Product extends Model
     public function brand()
     {
         return $this->belongsTo(Brand::class);
+    }
+
+    public function promotion()
+    {
+        return $this->belongsToMany(
+            Promotion::class,
+            Product_Promotion::class,
+            'product_id',
+            'promotion_id');
     }
 }

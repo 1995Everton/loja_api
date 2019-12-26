@@ -24,6 +24,8 @@ class Category extends Seeder
                 'active' => true,
                 'photo' => 'https://dafitistatic-a.akamaihd.net/dynamic_yield/cms/static/kanui/images/351cbf47e339__3pecas149.png',
                 'order' => 2
+
+
             ],
             [
                 'name' => 'Novidades',

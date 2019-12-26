@@ -25,6 +25,10 @@ class Store extends Seeder
             'country' => 'Brazil',
             'logo' => 'https://static.kabum.com.br/conteudo/temas/001/imagens/topo/logo_kabum_.png',
             'logo_footer' => 'https://static.kabum.com.br/conteudo/temas/001/imagens/topo/logo_kabum_.png',
+            'facebook' => 'https://www.facebook.com/kanuibr',
+            'twitter' => 'https://twitter.com/KanuiBR',
+            'instagram' => 'https://www.instagram.com/kanuibr/',
+            'google_play' => 'https://play.google.com/store/apps/details?id=br.com.kanui&hl=pt_BR'
         ]);
     }
 }

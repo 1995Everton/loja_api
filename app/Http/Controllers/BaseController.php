@@ -16,7 +16,13 @@ abstract class BaseController extends Controller
 
     public function index(Request $request): JsonResponse
     {
-        $data = $this->class::paginate($request->per_page);
+        $query = $request->query->all();
+        $where = null;
+        if(count($query) > 0 && isset($query["where"])){
+            $where = json_decode($query["where"],true);
+        }
+
+        $data = $this->class::where($where)->paginate($request->per_page);
         if($data->count() > 0){
             return response()->json(
                 [

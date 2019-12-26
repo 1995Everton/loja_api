@@ -30,6 +30,10 @@ class Store extends Model
         'country',
         'logo',
         'logo_footer',
+        'facebook',
+        'twitter',
+        'google',
+        'youtube'
     ];
 
 }

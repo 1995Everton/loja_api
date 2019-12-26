@@ -28,6 +28,10 @@ class CreateTableStore extends Migration
             $table->string('country',40);
             $table->string('logo',40);
             $table->string('logo_footer',40);
+            $table->string('facebook',150);
+            $table->string('twitter',150);
+            $table->string('instagram',150);
+            $table->string('google_play',150);
             $table->timestamps();
         });
     }

@@ -16,20 +16,12 @@ class CreateTableProduct extends Migration
         Schema::create('product', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name',40)->nullable(false);
-            $table->string('description',80)->nullable(false);
             $table->text('details')->nullable();
-            $table->string('image',100)->nullable(false);
             $table->string('miniature',100)->nullable();
-            $table->boolean('fragile')->nullable();
             $table->decimal('unitary_value',15,2)->nullable(false);
-            $table->decimal('net_weight',15,2)->nullable(false);
             $table->integer('stock')->nullable(false);
-            $table->string('tax_classification',10)->nullable();
-            $table->decimal('icms',15,2)->nullable();
-            $table->decimal('ipi',15,2)->nullable();
             $table->timestamp('last_sale')->nullable();
             $table->decimal('cost_price',15,2)->nullable();
-            $table->boolean('active')->default(true)->nullable();
             $table->timestamps();
             //foreign key
             $table->integer('category_id');
