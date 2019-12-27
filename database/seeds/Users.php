@@ -16,7 +16,8 @@ class Users extends Seeder
             'name' => 'Everton',
             'username' => 'everton',
             'email' => 'everton@email.com',
-            'password' => Hash::make('123')
+            'password' => Hash::make('123'),
+            'manager' => true
         ));
     }
 }

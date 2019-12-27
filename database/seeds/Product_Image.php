@@ -11,7 +11,7 @@ class Product_Image extends Seeder
      */
     public function run()
     {
-        \App\Product_Image::insert([
+        \App\ProductImage::insert([
             [
                 'name' => 'Nome Imagem',
                 'url' => '',

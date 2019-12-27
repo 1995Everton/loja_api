@@ -33,6 +33,12 @@ $router->group(['prefix' => 'api/adm', 'middleware' => 'admin' ],function () use
         $router->delete('{id}','ProductController@destroy');
     });
 
+    $router->group(['prefix' => 'product-image'],function () use ($router){
+        $router->post('','ProductImageController@store');
+        $router->put('{id}','ProductImageController@update');
+        $router->delete('{id}','ProductImageController@destroy');
+    });
+
     $router->group(['prefix' => 'address'],function () use ($router){
         $router->get('','AddressController@index');
         $router->post('','AddressController@store');
@@ -81,6 +87,11 @@ $router->group(['prefix' => 'api'],function () use ($router){
     $router->group(['prefix' => 'product'],function () use ($router){
         $router->get('','ProductController@index');
         $router->get('{id}','ProductController@show');
+    });
+
+    $router->group(['prefix' => 'product-image'],function () use ($router){
+        $router->get('','ProductImageController@index');
+        $router->get('{id}','ProductImageController@show');
     });
 
 });
