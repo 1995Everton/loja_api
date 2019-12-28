@@ -24,12 +24,12 @@ class Promotion extends Model
         'dt_end',
     ];
 
-    public function product()
-    {
-        return $this->belongsToMany(
-            Product::class,
-            Product_Promotion::class,
-            'promotion_id',
-            'product_id');
-    }
+//    public function product()
+//    {
+//        return $this->belongsToMany(
+//            Product::class,
+//            Product_Promotion::class,
+//            'promotion_id',
+//            'product_id');
+//    }
 }

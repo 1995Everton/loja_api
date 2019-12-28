@@ -36,9 +36,12 @@ class Product extends Model
         'last_sale',
         'cost_price',
         'active',
-        'category_id',
-        'brand_id'
+        'category_id'
     ];
+
+    protected $hidden = [ 'brand_id','category_id'];
+
+    protected $appends = ['brand','category'];
 
     public function category()
     {
@@ -50,12 +53,26 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
-    public function promotion()
+//    public function promotion()
+//    {
+//        return $this->belongsToMany(
+//            Promotion::class,
+//            Product_Promotion::class,
+//            'product_id',
+//            'promotion_id');
+//    }
+
+    public function sizes()
     {
-        return $this->belongsToMany(
-            Promotion::class,
-            Product_Promotion::class,
-            'product_id',
-            'promotion_id');
+        return $this->belongsToMany(Sizes::class);
+    }
+
+    public function getBrandAttribute()
+    {
+        return Brand::query()->select('id','name')->where('id' ,$this->brand_id)->first() ;
+    }
+    public function getCategoryAttribute()
+    {
+        return Category::query()->select('id','name')->where('id' ,$this->category_id)->first() ;
     }
 }
