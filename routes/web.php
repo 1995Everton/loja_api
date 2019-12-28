@@ -72,6 +72,11 @@ $router->group(['prefix' => 'api'],function () use ($router){
 
     $router->post('register','AuthController@register');
 
+    $router->group(['prefix' => 'post_office'],function () use ($router){
+        $router->post('calculate_price','PostOffices@calculatePrice');
+        $router->post('zip_code','PostOffices@zipCode');
+    });
+
     $router->group(['prefix' => 'category'],function () use ($router){
         $router->get('','CategoryController@index');
         $router->get('{id}','CategoryController@show');
