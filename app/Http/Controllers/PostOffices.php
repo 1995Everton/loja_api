@@ -34,7 +34,7 @@ class PostOffices extends Controller
         $data =  $this->correios->freight()
             ->origin($request->origin)
             ->destination($request->destination)
-            ->services(Service::SEDEX, Service::PAC)
+            ->services(Service::SEDEX, Service::PAC,Service::SEDEX_10,Service::SEDEX_CONTRATO_04316)
             // largura, altura, comprimento, peso e quantidade
             ->item($request->width, $request->height,$request->length, $request->weight, $request->quantity)
             ->calculate();
