@@ -20,7 +20,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'username' => 'required',
         'email' => 'required|email|unique:user',
         'password' => 'required',
-        'name' => 'required'
+        'name' => 'required',
+        'manager' => 'unique:user'
     ];
 
     protected $fillable = [

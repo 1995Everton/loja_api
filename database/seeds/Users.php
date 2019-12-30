@@ -12,12 +12,21 @@ class Users extends Seeder
      */
     public function run()
     {
-        \App\User::create(array(
-            'name' => 'Everton',
-            'username' => 'everton',
-            'email' => 'everton@email.com',
-            'password' => Hash::make('123'),
-            'manager' => true
-        ));
+        $faker = Faker\Factory::create('pt_BR');
+        $value = [];
+        for ($i = 0; $i < 5; $i++) {
+            $value[] = [
+                'name' => $faker->name,
+                'username' => $faker->lastName,
+                'email' => $faker->email,
+                'password' => Hash::make('123'),
+                'manager' => true,
+                'telephone' => $faker->e164PhoneNumber,
+                'genre' => 'M',
+                'rg' => '136108696',
+                'cpf'=> '11438374798',
+            ];
+        }
+        \App\User::insert($value);
     }
 }

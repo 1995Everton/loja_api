@@ -19,7 +19,6 @@ class CreateTableUser extends Migration
             $table->string('password')->nullable(false);
             $table->string('email')->nullable(false)->unique();
             $table->boolean('manager')->default(false);
-            $table->boolean('active',40)->default(false);
             // DADOS
             $table->string('name',40)->nullable(false);
             $table->string('telephone',40)->nullable();

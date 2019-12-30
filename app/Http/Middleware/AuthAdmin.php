@@ -15,7 +15,7 @@ class AuthAdmin
         try {
             if (!$request->hasHeader('Authorization')) throw new \Exception();
             $user = User::query()->where('token', $request->header('Authorization'))->first();
-            if(is_null($user) || !$user->manager)throw new \Exception();
+            if(is_null($user) || !$user->manager)throw new \Exception($user->manager);
             return $next($request);
         }catch (\Exception $e) {
             return response('Unauthorized',401);

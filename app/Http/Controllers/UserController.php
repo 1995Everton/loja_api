@@ -17,6 +17,20 @@ class UserController extends BaseController
         $this->class = User::class;
     }
 
+    public function update(int $id, Request $request)
+    {
+        $data = User::find($id);
+        if(is_null($data)){
+            return response()->json(['error' => 'no data found'],404);
+        }
+        User::$rules['email'] = 'required|email|unique:user,email,'.$data->id;
+        User::$rules['password'] = 'unique:user';
+        $this->validate($request,User::$rules);
+        $data->fill($request->all());
+        $data->save();
+        return response()->json($data,200);
+    }
+
     public function clientIndex()
     {
         return response()->json(Auth::user());
@@ -24,7 +38,10 @@ class UserController extends BaseController
 
     public function clientUpdate(Request $request)
     {
+
         $user = Auth::user();
+        User::$rules['email'] = 'required|email|unique:user,email,'.$user->id;
+        User::$rules['password'] = 'unique:user';
         $this->validate($request,User::$rules);
         $user->fill($request->all());
         $user->save();
