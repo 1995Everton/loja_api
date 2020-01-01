@@ -49,4 +49,14 @@ class UserController extends BaseController
 
     }
 
+    public function indexFavorites()
+    {
+        $data = Auth::user()->favorites()->getResults();
+        if(count($data) > 0){
+            return response()->json(compact('data'),200);
+        }else{
+            return response()->json(['error' => 'no data found'],404);
+        }
+    }
+
 }

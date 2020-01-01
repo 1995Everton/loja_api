@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTablePromotion extends Migration
+class CreateTableProductRequest extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateTablePromotion extends Migration
      */
     public function up()
     {
-        Schema::create('promotion', function (Blueprint $table) {
+        Schema::create('product_request', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name',80)->nullable(false);
-            $table->string('miniature')->nullable();
-            $table->timestamp('dt_start');
-            $table->timestamp('dt_end');
+            $table->integer('product_id')->unsigned();
+            $table->integer('request_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -30,8 +28,6 @@ class CreateTablePromotion extends Migration
      */
     public function down()
     {
-        Schema::create('promotion', function (Blueprint $table) {
-            Schema::dropIfExists('promotion');
-        });
+        Schema::dropIfExists('product_request');
     }
 }

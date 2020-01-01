@@ -17,12 +17,12 @@ class CreateTableAddress extends Migration
             $table->bigIncrements('id');
             $table->string('street',80)->nullable(false);
             $table->string('number',6)->nullable(false);
-            $table->string('complement',40);
-            $table->string('neighborhood',6)->nullable(false);
-            $table->string('cep',10);
-            $table->string('city',40);
-            $table->string('state',2);
-            $table->string('country',40);
+            $table->string('complement',40)->nullable();
+            $table->string('neighborhood',40)->nullable();
+            $table->string('cep',10)->nullable();
+            $table->string('city',40)->nullable();
+            $table->string('state',2)->nullable();
+            $table->string('country',40)->nullable();
             $table->timestamps();
             //foreign key
             $table->integer('user_id');

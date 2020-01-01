@@ -5,6 +5,7 @@ namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Product extends Model
 {
@@ -41,7 +42,7 @@ class Product extends Model
 
     protected $hidden = [ 'brand_id','category_id'];
 
-    protected $appends = ['brand','category'];
+    protected $appends = ['brand','category','favorites'];
 
     public function category()
     {
@@ -53,18 +54,14 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
-//    public function promotion()
-//    {
-//        return $this->belongsToMany(
-//            Promotion::class,
-//            Product_Promotion::class,
-//            'product_id',
-//            'promotion_id');
-//    }
-
-    public function sizes()
+    public function favorites()
     {
-        return $this->belongsToMany(Sizes::class);
+        return $this->belongsToMany(User::class, 'favorite', 'product_id', 'user_id')->withTimeStamps();
+    }
+
+    public function getFavoritesAttribute(){
+        $favorites =  $this->favorites()->getResults();
+        return array_map( function ($user) {  return [ 'id' => $user['id'] ]; },$favorites->toArray());
     }
 
     public function getBrandAttribute()

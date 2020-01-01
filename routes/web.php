@@ -54,12 +54,22 @@ $router->group(['prefix' => 'api', 'middleware' => 'auth' ],function () use ($ro
     $router->group(['prefix' => 'user'], function () use ($router){
         $router->get('','UserController@clientIndex');
         $router->put('','UserController@clientUpdate');
+        $router->get('favorite','UserController@indexFavorites');
     });
 
     $router->group(['prefix' => 'address'],function () use ($router){
         $router->post('','AddressController@clientStore');
         $router->get('','AddressController@clientEdit');
         $router->put('{id}','AddressController@clientUpdate');
+    });
+
+    $router->group(['prefix' => 'product'],function () use ($router){
+        $router->post('{id}','ProductController@favoriteProduct');
+    });
+
+    $router->group(['prefix' => 'request'],function () use ($router){
+        $router->get('','RequestController@index');
+        $router->post('','RequestController@store');
     });
 
 });

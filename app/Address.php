@@ -17,11 +17,11 @@ class Address extends Model
         'street' => 'required',
         'number' => 'required',
         'complement' => 'required',
+        'neighborhood' => 'required',
         'cep' => 'required',
         'city' => 'required',
         'state' => 'required',
         'country' => 'required',
-        'neighborhood' => 'required',
         'user_id' => 'required|exists:user,id'
     ];
 

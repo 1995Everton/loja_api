@@ -37,6 +37,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return $this->hasMany(Address::class);
     }
 
+    public function favorites()
+    {
+        return $this->belongsToMany(Product::class, 'favorite', 'user_id', 'product_id')->withTimeStamps();
+    }
+
     public function getManagerAttribute($manager):bool
     {
         return $manager;
