@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 
+use App\Address;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,6 +58,18 @@ class UserController extends BaseController
         }else{
             return response()->json(['error' => 'no data found'],404);
         }
+    }
+
+    public function setMe()
+    {
+        $user = $user = Auth::user();
+        $address = Address::query()->where('user_id',Auth::id())->get();
+        $favorites = Auth::user()->favorites()->getResults();
+        return response()->json([
+            'user' => $user,
+            'address' => $address,
+            'favorites' => $favorites
+        ],202);
     }
 
 }

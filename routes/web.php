@@ -53,6 +53,7 @@ $router->group(['prefix' => 'api', 'middleware' => 'auth' ],function () use ($ro
 
     $router->group(['prefix' => 'user'], function () use ($router){
         $router->get('','UserController@clientIndex');
+        $router->post('me','UserController@setMe');
         $router->put('','UserController@clientUpdate');
         $router->get('favorite','UserController@indexFavorites');
     });
