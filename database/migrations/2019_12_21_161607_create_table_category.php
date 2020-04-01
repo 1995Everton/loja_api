@@ -13,6 +13,7 @@ class CreateTableCategory extends Migration
      */
     public function up()
     {
+        Schema::defaultStringLength(191);
         Schema::create('category', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable(false);

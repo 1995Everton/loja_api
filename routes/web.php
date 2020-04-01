@@ -77,6 +77,10 @@ $router->group(['prefix' => 'api', 'middleware' => 'auth' ],function () use ($ro
 
 $router->group(['prefix' => 'api'],function () use ($router){
 
+    $router->get('/',function(){
+        return [ 'status' => 'ok'];
+    });
+
     $router->get('store','StoreController@index');
 
     $router->post('login','AuthController@authentication');

@@ -1,0 +1,37 @@
+version: '3.3'
+volumes:
+  data:
+services:
+    api:
+        container_name: loja_api
+        build: .
+        volumes: 
+            - .:/var/www/html
+        ports:
+            - "8000:8000"
+        tty: true
+        depends_on: 
+            - db
+        links: 
+            - db
+
+    db:
+        container_name: database_mysql
+        image: mysql:5.6
+        command: --init-file /data/application/loja.sql
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./database/loja.sql:/data/application/loja.sql
+        environment:
+            - MYSQL_ROOT_PASSWORD=password
+
+    phpmyadmin:
+        container_name: phpmyadmin
+        image: phpmyadmin/phpmyadmin:latest
+        links:
+            - db
+        ports:
+            - 80:80
+        environment:
+            - PMA_ARBITRARY=1

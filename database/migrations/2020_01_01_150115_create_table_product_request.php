@@ -13,10 +13,11 @@ class CreateTableProductRequest extends Migration
      */
     public function up()
     {
+        Schema::defaultStringLength(191);
         Schema::create('product_request', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('product_id')->unsigned();
-            $table->integer('request_id')->unsigned();
+            $table->unsignedBigInteger('product_id')->unsigned();
+            $table->unsignedBigInteger('request_id')->unsigned();
             $table->timestamps();
         });
     }

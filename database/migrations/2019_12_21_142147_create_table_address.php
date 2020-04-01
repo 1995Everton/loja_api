@@ -13,6 +13,7 @@ class CreateTableAddress extends Migration
      */
     public function up()
     {
+        Schema::defaultStringLength(191);
         Schema::create('address', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('street',80)->nullable(false);
@@ -25,7 +26,7 @@ class CreateTableAddress extends Migration
             $table->string('country',40)->nullable();
             $table->timestamps();
             //foreign key
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')
                 ->references('id')

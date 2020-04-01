@@ -13,19 +13,20 @@ class CreateTableProduct extends Migration
      */
     public function up()
     {
+        Schema::defaultStringLength(191);
         Schema::create('product', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name',40)->nullable(false);
+            $table->string('name',180)->nullable(false);
             $table->text('details')->nullable();
-            $table->string('miniature',100)->nullable();
+            $table->string('miniature',180)->nullable();
             $table->decimal('unitary_value',15,2)->nullable(false);
             $table->integer('stock')->nullable(false);
             $table->timestamp('last_sale')->nullable();
             $table->decimal('cost_price',15,2)->nullable();
             $table->timestamps();
             //foreign key
-            $table->integer('category_id');
-            $table->integer('brand_id');
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('brand_id');
 
             $table->foreign('category_id')
                 ->references('id')

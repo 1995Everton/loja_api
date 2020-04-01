@@ -13,9 +13,10 @@ class CreateTableUser extends Migration
      */
     public function up()
     {
+        Schema::defaultStringLength(191);
         Schema::create('user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('username',8)->nullable(false);
+            $table->string('username',40)->nullable(false);
             $table->string('password')->nullable(false);
             $table->string('email')->nullable(false)->unique();
             $table->boolean('manager')->default(false);

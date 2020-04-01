@@ -1,21 +1,68 @@
-# Lumen PHP Framework
+<h1 align="center">Welcome to loja-api 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/1995Everton/loja_api#readme" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/1995Everton/loja_api/graphs/commit-activity" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  </a>
+  <a href="https://github.com/1995Everton/loja_api/blob/master/LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
+  </a>
+</p>
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+>  this project was developed to provide a microservice for an E-commerce store inspired by Kanui
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+### 🏠 [Homepage](https://github.com/1995Everton/loja_api.git#readme)
 
-## Official Documentation
+### Front End
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+ >  the front end part of the project if you enter this repository, feel free to test
 
-## Security Vulnerabilities
+ - [loja](https://github.com/1995Everton/loja#readme)
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+## Requirements
 
-## License
+  🐋 [Docker](https://www.docker.com)
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 👉 Install
+
+```sh
+docker-compose up --build
+```
+
+## 🚀 [Api](http://localhost:8000/api)
+
+  - localhost: http://localhost:8000/api
+
+## 👍 PhpMyAdmin
+
+  👉 [Link](http://localhost/)
+  
+ - Server: db
+ - User: root
+ - Password: password
+
+## Author
+
+👤 **1995Everton**
+
+* Github: [@1995Everton](https://github.com/1995Everton)
+* LinkedIn: [@Everton-Cardoso](https://www.linkedin.com/in/everton-cardoso-a33556173/)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/1995Everton/leagueoflegends-api/issues). You can also take a look at the [contributing guide](https://github.com/1995Evertonleagueoflegends-api/blob/master/CONTRIBUTING.md).
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## 📝 License
+
+Copyright © 2020 [1995Everton](https://github.com/1995Everton).<br />
+This project is [MIT](https://github.com/1995Everton/leagueoflegends-api/blob/master/LICENSE) licensed.
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

@@ -13,6 +13,7 @@ class CreateTableEndereco extends Migration
      */
     public function up()
     {
+        Schema::defaultStringLength(191);
         Schema::create('endereco', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('endereco');
@@ -22,7 +23,7 @@ class CreateTableEndereco extends Migration
             $table->string('cidade');
             $table->string('pais');
             $table->string('cep');
-            $table->integer('user_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

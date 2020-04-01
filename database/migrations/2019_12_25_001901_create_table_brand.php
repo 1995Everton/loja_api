@@ -13,6 +13,7 @@ class CreateTableBrand extends Migration
      */
     public function up()
     {
+        Schema::defaultStringLength(191);
         Schema::create('brand', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name',80)->nullable(false);

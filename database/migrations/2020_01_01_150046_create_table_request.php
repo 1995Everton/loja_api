@@ -13,14 +13,15 @@ class CreateTableRequest extends Migration
      */
     public function up()
     {
+        Schema::defaultStringLength(191);
         Schema::create('request', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('amount')->nullable(false);
             $table->decimal('price_total')->nullable(false);
             $table->boolean('status')->default(true);
 
-            $table->integer('user_id')->unsigned();
-            $table->integer('address_id')->unsigned();
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->unsignedBigInteger('address_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')
